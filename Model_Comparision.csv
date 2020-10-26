@@ -1,0 +1,7 @@
+Data,Model,f1_score(weighted),Precision,Recall,Training Accuracy,Testing Acuuracy
+Without Cluster,Random Forest,0.665862,0.687547,0.69252,1.0,0.69252
+Without Cluster,CostSenstivity,0.684097,0.712974,0.705321,1.0,0.705321
+Without Cluster,SMOTETomek,0.708039,0.719709,0.720633,0.992281,0.720633
+With Cluster,Random Forest,0.662955,0.681588,0.689006,1.0,0.689006
+With Cluster,CostSenstivity,0.678772,0.705273,0.701556,1.0,0.701556
+With Cluster,SMOTETomek,0.703126,0.713977,0.716114,0.992155,0.716114
