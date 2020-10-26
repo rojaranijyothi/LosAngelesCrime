@@ -1,0 +1,2 @@
+Model,Training_accuracy,Test_accuracy,f1_score,Precision,recall,Hyperparameters
+Random Forest,0.9633,0.851,0.839,0.853,0.832,"n_estimators : 800, min_samples_split : 6, min_samples_leaf : 2, max_features : 0.5, max_depth : 35"

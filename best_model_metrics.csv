@@ -1,0 +1,2 @@
+Model,Method,Training_accuracy,Test_accuracy,f1_score(weighted),Precision,recall,Hyperparameters
+Random Forest,Cost Sensitive,0.956,0.715,0.706,0.717,0.716,"n_estimators : 800, min_samples_split : 6, min_samples_leaf : 2, max_features : 0.5, max_depth : 30"
