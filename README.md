@@ -75,7 +75,11 @@ Location |	The location where the crime incident occurred. Actual address is omi
 
 [EDA Notebook](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/ExploratoryDataAnalysis(EDA).ipynb)
 
-Visualized the crimes that were commited from 2010-2019 based on various parameters.And also visualized how crime type varies depends on location and time.
+Visualized the crimes that were commited from 2010-2019 based on various parameters.And also visualized victims sex, age, descent, weapons used, primary crime location, how crime type varies depends on location and time.
+
+![yearly crimes](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/Figures/sex_descent.png)
+![area_year](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/Figures/area_year.png)
+![age abvoe 70](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/Figures/age_70.png)
 
 ### 5. Data Preprocessing
 
@@ -121,6 +125,10 @@ With Cluster | SMOTETomek | 0.703 | 0.713 | 0.716 | 0.992 | 0.716
 I choose CostSensitivity(Without Cluster) as final model eventhough SMOTETomek outperforms CostSensitivity,because SMOTETomek is computationally so expensive.
 After tuning the parameters,achieved performance accuracy **F1-score(weighted) - 0.71**.
 
+Because the target has 76 classes,it would not be possible to visualize the predictions through confusion matrix.But we can review the predictions through Reciever Operating Characteristic(ROC).The AUC-ROC curve is only for binary classification problems. But we can extend it to multiclass classification problems by using the One vs All technique.
+
+![AUC-ROC](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/Figures/aucroc_model1.png)
+
 #### 2. Multiclass classification for high frequency(top 10) crimes
 
 Since we choose only the high frequency(top 10) crimes, all the classes in the response variable have merely an equal distribution.
@@ -144,15 +152,25 @@ XGB | 0.708 | 0.008
 
 Again here I am a little biased to RandomForest because of its fast runtime speed.So I choose RF as our model even though XGB outperforms RF.I built a model using RandomForest with StratifiedKFold(5 splits) and achieved a f1-score  as 0.831.After that I did hyperparameter tuning for best parameters to improve the performance of our model.With the best parameters that we got after tuning,we were able to increase the accuracy by 1% in other words achieved a pretty good accuracy **F1-score - 0.84**.
 
+For this model we can we visualize the results through confusion matrix as well as with AUC-ROC.
+
+**PREDICTIONS**
+
+![AUC-ROC](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/Figures/aucroc_model2.png)
+
+![Confusion matrix](https://github.com/rojaranijyothi/LosAngelesCrime/blob/master/Figures/confusion%20matrix.png)
+
+In conclusion, our work led to interesting results, analysis and statistics, but also provided useful tools both for authorities and population, which allows a better understanding of crimes in LA.
+
+This project gave me an opportunity to explore this freely available dataset using a proper data science pipeline of data wrangling, data analysis, data visualization, prediction, and data storytelling.
+
+### 7. Future Improvements
+
+ - In order to boost the classification accuracy, it is necessary to incorporate other information like Modus Operandi(MO) which we did not use in our model.Additionally, some events and the outcomes of the events may be associated with some crime types.Events information and weather information can also be incorporated.It will be interesting to see whether these features can help the classification.
+ - We could use a Clustering algorithm, namely K-Modes Clustering, which is similar to K-Means, but uses modes instead of means, making itself usable for cluster computation on categorical variables. As a result of the clustering process, we could figure out some cluster centroids which can potentially be interesting for authorities, since they can indicate "standard frequent crimes", allowing authorities to concentrate their forces in order to contrast crimes indicated by  centroids and similar ones.
+ - Due to memory constraints on Jupyter notebook, I had to train a sample of size 20000 from the original dataset. Without resource limitations, I would love to train on the full dataset. Preliminary tests showed that the bigger the training size, the higher the accuracy.
 
 
 
 
-
-
-  
-
-
- 
- 
 
